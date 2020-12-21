@@ -1,9 +1,9 @@
 module.exports = {
   title: `Jay Record`,
-  description: `Blog posted about ...`,
+  description: `사소한 경험들을 기록합니다.`,
   author: `Jaewon Heo`,
-  introduction: `I explain with words and code.`,
-  siteUrl: `https://gatsby-starter-bee.netlify.com`, // Your blog site url
+  introduction: `More than yesterday. Less than tomorrow.`,
+  siteUrl: `https://jay-record.netlify.app`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
     instagram: `he0jae1`, // Your Instagram account
