@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://jay-record.netlify.app/sitemap.xml
+Host: https://jay-record.netlify.app
