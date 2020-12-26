@@ -23,6 +23,10 @@ export function Head({ description, lang, meta, keywords, title }) {
                 content: `sFH3roFp44bLHtnngECtVfa2flshbW0mFxrXmobPea4`,
               },
               {
+                name: `naver-site-verification`,
+                content: `7d964c7bb13271a880ae54a648e79e73cccefc3e`,
+              },
+              {
                 name: `description`,
                 content: metaDescription,
               },
