@@ -103,11 +103,5 @@ module.exports = {
     `gatsby-plugin-netlify`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: 'gatsby-plugin-react-helmet-canonical-urls',
-      options: {
-        siteUrl: 'https://jay-record.netlify.app',
-      },
-    },
   ],
 }
