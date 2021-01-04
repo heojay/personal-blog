@@ -1,7 +1,7 @@
 ---
-title: 'Hello!'
+title: Hello!
 date: 2021-01-01 00:00:00
-category: 'essay'
+category: essay
 draft: false
 ---
 

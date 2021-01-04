@@ -1,7 +1,7 @@
 ---
-title: '글 쓰는 법을 잊은 개발자'
+title: 글 쓰는 법을 잊은 개발자
 date: 2021-01-02 00:00:00
-category: 'essay'
+category: essay
 draft: false
 ---
 
