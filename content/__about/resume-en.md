@@ -18,4 +18,5 @@ Software Engineer, interested in Developer Experience.
 | -----------: | ------------------------ |
 |   **period** | 2020.07 ~ current        |
 |     **team** | Productivity Engineering |
-| **projects** | Nucleo, PIPE             |
+| **position** | DevOps, Backend          |
+| **projects** | PIPE, Nucleo             |
