@@ -1,7 +1,7 @@
 ---
 title: Helmfile을 써보고
 date: 2021-01-04 00:00:00
-category: development
+category: dev
 draft: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Nightbot과 Google 스프레드시트로 출결을 관리해보고
 date: 2021-01-08 00:00:00
-category: development
+category: dev
 draft: false
 ---
 
