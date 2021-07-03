@@ -4,7 +4,7 @@
 
 ![screenshot](./assets/main.png)
 
-Link: https://jay-record.netlify.app/
+Link: https://heojay.dev/
 
 ---
 

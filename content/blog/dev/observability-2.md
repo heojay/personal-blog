@@ -1,5 +1,5 @@
 ---
-title: <번역> 관찰 가능성, 3년을 돌아보며 - 2
+title: 관찰 가능성, 3년을 돌아보며 - 2
 date: 2021-05-01 00:00:01
 category: dev
 thumbnail: { thumbnailSrc }
