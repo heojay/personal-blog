@@ -43,6 +43,8 @@ draft: false
 
 불편한 점이 있다면 디버깅을 비롯한 대부분의 개발 작업을 모두 구글에서 제공하는 온라인 스크립트 편집기를 사용해야 한다는 점입니다. 인터넷 상태에 따라 개발에 어려움을 줄 정도로 느려질 때도 많아서 로컬에서 자바스크립트로 최대한 구현한 다음, Sheet를 읽고 쓰는 부분만 따로 테스트하는 형태로 진행했습니다.
 
+이 글에서 사용된 코드는 [heojay/attendance-chatbot](https://github.com/heojay/attendance-chatbot)를 참고하시기 바랍니다.
+
 ## 마치며
 
 ![](./images/chatbot-2.png)
@@ -58,6 +60,6 @@ draft: false
 
 ## 그 외
 
-- 이 글에 소개된 출결 관리 봇을 사용해보고 싶으시다면, 혹은 그냥 좋은 방송과 함께 공부를 하고 싶으시다면 [돤글리시](https://www.youtube.com/channel/UCoXq4zU8s-oMizH1w6vFQOw)에서 진행하는 라이브 방송에 참여하시면 됩니다! 라이브 방송 시간은 매일 밤 10시부터 다음날 새벽 1시까지입니다.
+- 이 글에 소개된 출결 관리 봇은 [돤글리시](https://www.youtube.com/channel/UCoXq4zU8s-oMizH1w6vFQOw)에서 진행하는 라이브 방송에서 사용됐습니다.
 - 나이트봇에는 한글이 포함된 링크를 urlfetch로 보내려고 하면 에러가 발생하는 문제가 있습니다. 이 때는 querystring 변수로 한글을 한 번 감싸주면 문제가 해결됩니다.
 - [Google Apps Script 생활코딩 강의](https://youtu.be/THly_FR7cWA)
