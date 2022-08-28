@@ -28,17 +28,17 @@ Kubernetes를 어느 정도 쓰기 시작했다면, 사용해 본 적은 없더�
 
 처음에는 그냥 bash로 작성하려고 했지만 분명 비슷한 고민을 하고 있는 사람들이 있을 것이라는 생각에 검색을 하던 중, Helmfile을 만나게 됩니다.
 
-## [Helmfile](https://github.com/roboll/helmfile)
+## [Helmfile](https://github.com/helmfile/helmfile)
 
 Helmfile은 (설명에 따르면) Helm을 배포하기 위한 선언적 Spec입니다. 마치 우리가 Kubernetes Spec을 작성해서 resource를 정의하는 것처럼, Helmfile을 작성해서 Helm 배포를 정의한다고 생각하시면 됩니다. 어떤 게시물에는 "Helmfile은 Helm을 위한 Helm이다" 라는 표현이 있었는데 곱씹을수록 그럴싸한 표현 같습니다.
 
 ### 설치
 
-설치 방법은 간단합니다. [Installation](https://github.com/roboll/helmfile#installation) 에서 binary, package 파일을 다운 받거나, Mac이라면 `brew install helmfile` 로 간단하게 설치할 수 있습니다. 다만, 당연히 Helm이 설치되어 있어야 하고, 차트 비교를 위해 [helm-diff plugin](https://github.com/databus23/helm-diff)이 기본적으로 필요합니다. 이 외에도 저는 [helm-secrets plugin](https://github.com/jkroepke/helm-secrets)도 설치해서 사용했고, 여타 많은 plugin들을 Helmfile과 함께 이용할 수 있으니 참고하시기 바랍니다.
+설치 방법은 간단합니다. [Installation](https://github.com/helmfile/helmfile#installation) 에서 binary, package 파일을 다운 받거나, Mac이라면 `brew install helmfile` 로 간단하게 설치할 수 있습니다. 다만, 당연히 Helm이 설치되어 있어야 하고, 차트 비교를 위해 [helm-diff plugin](https://github.com/databus23/helm-diff)이 기본적으로 필요합니다. 이 외에도 저는 [helm-secrets plugin](https://github.com/jkroepke/helm-secrets)도 설치해서 사용했고, 여타 많은 plugin들을 Helmfile과 함께 이용할 수 있으니 참고하시기 바랍니다.
 
 ### 사용
 
-사용 방법 역시 간단합니다. [Configuration](https://github.com/roboll/helmfile#configuration) 에 나와있는 것처럼 `helmfile.yaml`을 작성하고, 이 파일이 있는 디렉토에서 `helmfile apply` 를 입력하면 파일에 정의된 그대로 Helm이 배포됩니다. 예를 들어 아래와 같은 파일이 있다면, 간단하게 Prometheus를 클러스터에 배포할 수 있게 됩니다. 학습 난이도가 낮다는 점도 Helmfile의 매력이라고 생각합니다.
+사용 방법 역시 간단합니다. [Configuration](https://helmfile.readthedocs.io/en/latest/#configuration) 에 나와있는 것처럼 `helmfile.yaml`을 작성하고, 이 파일이 있는 디렉토에서 `helmfile apply` 를 입력하면 파일에 정의된 그대로 Helm이 배포됩니다. 예를 들어 아래와 같은 파일이 있다면, 간단하게 Prometheus를 클러스터에 배포할 수 있게 됩니다. 학습 난이도가 낮다는 점도 Helmfile의 매력이라고 생각합니다.
 
 ```
 # helmfile.yaml
