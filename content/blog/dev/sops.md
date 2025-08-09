@@ -17,15 +17,15 @@ draft: false
 
 이와 같은 secret 관리의 어려움을 해결하기 위한 다양한 툴들이 있지만 오늘은 그 중에서 제가 사용해 본 SOPS에 대해 공유해드리도록 하겠습니다.
 
-## [SOPS](https://github.com/mozilla/sops)
+## [SOPS](https://github.com/getsops/sops)
 
-SOPS(Secrets OPerationS)는 Mozilla에서 관리하는 오픈소스 프로젝트 중 하나로, yaml, json, env, ini, 그리고 그 외 여러 포맷들을 지원하는 암호화 파일 에디터입니다.
+SOPS(Secrets OPerationS)는 Cloud Native Computing Foundation 샌드박스 프로젝트 중 하나로, yaml, json, env, ini, 그리고 그 외 여러 포맷들을 지원하는 암호화 파일 에디터입니다.
 
 ![](./images/sops-1.gif)
 
 ### 설치
 
-https://github.com/mozilla/sops/releases 에서 binary, package 파일을 다운 받거나, Mac이라면 `brew install sops` 로 간단하게 설치할 수 있습니다. [Docker 이미지](https://hub.docker.com/r/mozilla/sops)도 제공하고 있습니다.
+https://github.com/getsops/sops/releases 에서 binary, package 파일을 다운 받거나, Mac이라면 `brew install sops` 로 간단하게 설치할 수 있습니다.
 
 ### 준비
 
@@ -34,7 +34,7 @@ SOPS는 AWS KMS, GCP KMS, Azure Key Vault 등 다양한 Key Management Service�
 SOPS 저장소의 예제를 이용해보도록 하겠습니다. 저장소를 clone하고, 아래 커맨드로 gpg에 SOPS 테스트 키를 import 합시다. (실사용시에는 직접 만든 key를 사용해야 합니다.)
 
 ```
-$ git clone https://github.com/mozilla/sops.git
+$ git clone https://github.com/getsops/sops.git
 $ cd sops
 $ gpg --import pgp/sops_functional_tests_key.asc
 ```
