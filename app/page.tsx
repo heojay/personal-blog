@@ -1,13 +1,17 @@
+import { CustomMDX } from 'app/components/mdx'
+import { getAboutContent } from './lib/mdx'
+
 export default function Page() {
+  const { metadata, content } = getAboutContent()
+
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        Jaewon Heo
+        {metadata.title}
       </h1>
-      <p className="mb-4 break-keep">
-        2020년 LINE Plus에 입사하여 사내 Cloud Platform을 개발하고 있습니다.
-        Shared Kubernetes, CI/CD, PaaS를 거쳐 현재는 IAM(Identity and Access Management)을 개발 중입니다.
-      </p>
+      <div className="prose prose-neutral dark:prose-invert break-keep">
+        <CustomMDX source={content} />
+      </div>
     </section>
   )
 }
