@@ -7,9 +7,6 @@ const navItems = {
   '/blog': {
     name: 'blog',
   },
-  'https://fire.heojay.dev': {
-    name: 'fire',
-  },
 }
 
 export function Navbar() {
