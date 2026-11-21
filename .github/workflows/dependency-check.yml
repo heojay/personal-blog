@@ -31,6 +31,7 @@ jobs:
           const manifest = JSON.parse(fs.readFileSync('package.json', 'utf8'));
           Object.assign(manifest.dependencies, {
             next: '16.4.6',
+            postcss: '^8.5.33',
             tailwindcss: '4.3.5',
             '@tailwindcss/postcss': '4.3.5',
           });
@@ -53,7 +54,7 @@ jobs:
           done
       - uses: actions/upload-artifact@v4
         with:
-          name: verified-dependency-files
+          name: verified-dependency-files-with-postcss
           path: |
             package.json
             pnpm-lock.yaml
