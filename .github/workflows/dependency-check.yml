@@ -23,7 +23,6 @@ jobs:
           pnpm outdated --format json > "$RUNNER_TEMP/outdated.json" || test "$?" -eq 1
           cat "$RUNNER_TEMP/outdated.json"
           npm view next@16.4.6 engines peerDependencies dependencies --json
-          npm view @tailwindcss/postcss@4.3.5 engines peerDependencies dependencies --json
       - name: Resolve the reviewed patch releases
         run: |
           node <<'NODE'
@@ -33,8 +32,6 @@ jobs:
             next: '16.4.6',
             postcss: '^8.5.33',
             geist: '1.9.2',
-            tailwindcss: '4.3.5',
-            '@tailwindcss/postcss': '4.3.5',
           });
           fs.writeFileSync('package.json', JSON.stringify(manifest, null, 2));
           NODE
