@@ -1,0 +1,59 @@
+name: Verify dependency updates
+on:
+  push:
+    branches: [codex/dependency-check-2026-11-22]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.22.0'
+      - name: List candidate versions
+        run: |
+          npm install --global pnpm@12.13.0
+          node -v
+          pnpm -v
+          pnpm outdated --format json > "$RUNNER_TEMP/outdated.json" || test "$?" -eq 1
+          cat "$RUNNER_TEMP/outdated.json"
+          npm view next@16.4.6 engines peerDependencies dependencies --json
+          npm view @tailwindcss/postcss@4.3.5 engines peerDependencies dependencies --json
+      - name: Resolve the reviewed patch releases
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const manifest = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          Object.assign(manifest.dependencies, {
+            next: '16.4.6',
+            tailwindcss: '4.3.5',
+            '@tailwindcss/postcss': '4.3.5',
+          });
+          fs.writeFileSync('package.json', JSON.stringify(manifest, null, 2));
+          NODE
+          pnpm install --lockfile-only --no-frozen-lockfile --strict-peer-dependencies
+          git diff --stat
+          git diff -- package.json pnpm-lock.yaml
+      - name: Install, build, and smoke-test
+        run: |
+          pnpm install --frozen-lockfile --strict-peer-dependencies
+          pnpm build
+          pnpm exec next start --hostname 127.0.0.1 --port 3100 > "$RUNNER_TEMP/next.log" 2>&1 &
+          trap 'cat "$RUNNER_TEMP/next.log"' EXIT
+          curl --fail --silent --show-error --retry 15 --retry-connrefused --retry-delay 1 http://127.0.0.1:3100/ -o "$RUNNER_TEMP/home.html"
+          for route in /blog /blog/dayline /rss /sitemap.xml; do
+            curl --fail --silent --show-error "http://127.0.0.1:3100$route" --output "$RUNNER_TEMP/page"
+            test -s "$RUNNER_TEMP/page"
+            printf '%s OK\n' "$route"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-dependency-files
+          path: |
+            package.json
+            pnpm-lock.yaml
