@@ -32,12 +32,14 @@ jobs:
           Object.assign(manifest.dependencies, {
             next: '16.4.6',
             postcss: '^8.5.33',
+            geist: '1.9.2',
             tailwindcss: '4.3.5',
             '@tailwindcss/postcss': '4.3.5',
           });
           fs.writeFileSync('package.json', JSON.stringify(manifest, null, 2));
           NODE
           pnpm install --lockfile-only --no-frozen-lockfile --strict-peer-dependencies
+          git hash-object package.json pnpm-lock.yaml
           git diff --stat
           git diff -- package.json pnpm-lock.yaml
       - name: Install, build, and smoke-test
@@ -54,7 +56,7 @@ jobs:
           done
       - uses: actions/upload-artifact@v4
         with:
-          name: verified-dependency-files-with-postcss
+          name: verified-dependency-files-final
           path: |
             package.json
             pnpm-lock.yaml
